@@ -4,7 +4,9 @@
   "description": "For more descriptions see:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx hardhat test",
+    "lint": "eslint '**/*.{js,ts}",
+    "solhint": "solhint 'contracts/**/*.sol'"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,16 @@
 compile:
 	npx hardhat compile
 
+eslint:
+	npm run lint
+
+solhint:
+	npm run solhint
+
+lint:
+	make eslint
+	make solhint
+
 test-report:
 	REPORT_GAS=true npx hardhat test
 
@@ -15,5 +25,3 @@ size:
 
 console:
 	npx hardhat console
-
-# TODO: npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
