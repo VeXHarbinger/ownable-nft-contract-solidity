@@ -1,0 +1,35 @@
+name: Merge CI
+
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches:
+      - "*"
+
+
+jobs:
+  lint:
+    name: Lint Node and Solidity Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Lint JS/TS
+        run: npx eslint '**/*.{js,ts}'
+      - name: Lint Solidity
+        run: npx solhint 'contracts/**/*.sol'
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Compile
+        run: make compile
+      - name: Test
+        run: make test

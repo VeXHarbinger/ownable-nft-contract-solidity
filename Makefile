@@ -3,11 +3,11 @@
 compile:
 	npx hardhat compile
 
-test:
+test-report:
 	REPORT_GAS=true npx hardhat test
 
-test-admin:
-	REPORT_GAS=true npx hardhat test --no-compile test/administered_cost_managment.ts
+test:
+	npx hardhat test
 
 size:
 	npx hardhat size-contracts
