@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test",
-    "lint": "eslint '**/*.{js,ts}",
+    "lint": "eslint '**/*.{js,ts}'",
     "solhint": "solhint 'contracts/**/*.sol'"
   },
   "repository": {
