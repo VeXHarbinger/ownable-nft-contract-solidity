@@ -27,13 +27,18 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const config: HardhatUserConfig = {
   solidity: "0.8.0",
   networks: {
-    ropsten: {
-      url: process.env.NODE_URL || "",
+    rinkeby: { // rinkeby test network
+      url: process.env.NODE_URL || "", // Alchemy api URL
+      /**
+       * Please use a .env for security reasons
+       */
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined
+          ? [process.env.PRIVATE_KEY] : [],
     },
   },
   gasReporter: {
+    // enable this to not be overcharged
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
     gasPrice: 90000
