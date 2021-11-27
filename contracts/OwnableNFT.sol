@@ -18,7 +18,7 @@ contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
     constructor() public ERC721("OwnableNFT", "NFT") {}
 
     // Create a function to mint/create the NFT
-    // receiver takes a type of address. This is the wallet address of the user we would like to transfer ownership of our newly minted NFT to.
+    // receiver takes a type 18:54of address. This is the wallet address of the user we would like to transfer ownership of our newly minted NFT to.
     // tokenURI takes a string that contains metadata about the NFT
 
     function createNFT(address receiver, string memory tokenURI)
