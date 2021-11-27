@@ -12,9 +12,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: Lint JS/TS
-        run: eslint '**/*.{js,ts}'
+        run: make eslint
       - name: Lint Solidity
-        run: solhint 'contracts/**/*.sol'
+        run: make solhint
   test:
     name: Run tests
     runs-on: ubuntu-latest
