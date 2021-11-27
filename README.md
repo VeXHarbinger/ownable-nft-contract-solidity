@@ -1,5 +1,7 @@
 # Ownable NFT contract Hardhat Project
 
+[![Merge CI](https://github.com/JoseRodrigues443/ownable-nft-contract-solidity/actions/workflows/merge.yaml/badge.svg)](https://github.com/JoseRodrigues443/ownable-nft-contract-solidity/actions/workflows/merge.yaml)
+
 This project demonstrates an `ERC721` contract usage alongside the `Ownable` access control tooling from openzeppelin.
 
 - [Ownable NFT contract Hardhat Project](#ownable-nft-contract-hardhat-project)

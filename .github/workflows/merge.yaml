@@ -1,12 +1,6 @@
 name: Merge CI
 
-on:
-  push:
-    branches: [$default-branch]
-  pull_request:
-    branches:
-      - "*"
-
+on: [push, pull_request]
 
 jobs:
   lint:
