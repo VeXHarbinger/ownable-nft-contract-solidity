@@ -1,7 +1,8 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { OwnableNFT } from "../typechain/OwnableNFT";
+import OwnableNFTArtifact from '../artifacts/contracts/OwnableNFT.sol/OwnableNFT.json';
+import { Counter } from '../src/types/'
 
 describe("OwnableNFT", () => {
   let deployedContract: OwnableNFT;
@@ -28,7 +29,7 @@ describe("OwnableNFT", () => {
   it("Should allow mint from the owner", async () => {
     const expectedTokenId = 1;
     expect(await deployedContract.createNFT(addr1.address, ipfsURI))
-      .to.emit(deployedContract, "NGTCreated")
+      .to.emit(deployedContract, "Minted")
       .withArgs(owner.address, addr1.address, expectedTokenId, ipfsURI);
   });
 
