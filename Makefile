@@ -16,6 +16,11 @@ lint:
 test-report:
 	REPORT_GAS=true npx hardhat test
 
+dev:
+	make compile
+	make lint
+	make test-report
+
 test:
 	npx hardhat test
 

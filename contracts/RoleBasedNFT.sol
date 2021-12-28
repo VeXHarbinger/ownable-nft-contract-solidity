@@ -7,33 +7,30 @@ import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 
-// Accessing the Ownable method ensures that only the creator of this Smart contract can interact with it
-contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
+import "./RoleControl.sol";
+
+contract RoleBasedNFT is ERC721, ERC721URIStorage, RoleControl {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    event Minted(
+    event MintedWithRole(
         address from,
         address to,
         uint256 tokenId,
-        string tokenURI
+        string tokenURI,
+        bool isAdmin
     );
 
 
     // the name and symbol of the NFT respectively
-    constructor() ERC721("OwnableNFT", "NFT") {
+    constructor() ERC721("RoleBasedNFT", "NFT") RoleControl(msg.sender) {
         console.log("RoleBasedNFT created");
     }
 
-    // Create a function to mint/create the NFT
-    // receiver takes a type 18:54of address. This is the wallet address of the user we would like to transfer ownership of our newly minted NFT to.
-    // tokenURI takes a string that contains metadata about the NFT
-
     function createNFT(address receiver, string memory uri)
         public
-        onlyOwner
+        onlyAdmin
         returns (uint256)
     {
         _tokenIds.increment();
@@ -42,12 +39,38 @@ contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
         _mint(receiver, newItemId);
         _setTokenURI(newItemId, uri);
 
-        emit Minted(msg.sender, receiver, newItemId, uri);
+        emit MintedWithRole(msg.sender, receiver, newItemId, uri, isAdmin(msg.sender));
 
         // returns the id for the newly created token
         return newItemId;
     }
 
+    /**
+    * @dev Method that implements Rrc721.balanceOf(address) with onlyUser restriction
+    */
+    function balanceOfOwner(address owner) public view onlyUser returns (uint256) {
+        return balanceOf(owner);
+    }
+
+    /**
+    * @dev Method that implements Rrc721.balanceOf(address) with no restriction
+    */
+    function balanceOfOwnerOnlyAdmin(address owner) public view onlyAdmin returns (uint256) {
+        return balanceOf(owner);
+    }
+
+    /**
+    * @dev Method that implements Rrc721.balanceOf(address) with no restriction
+    */
+    function balanceOfOwnerAll(address owner) public view returns (uint256) {
+        return balanceOf(owner);
+    }
+    /**
+    * @dev Method that implements Rrc721.balanceOf(address) with no restriction
+    */
+    function balanceOfOwnerNotPayable(address owner) public view returns (uint256) {
+        return balanceOf(owner);
+    }
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
@@ -65,9 +88,10 @@ contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
     function supportsInterface(bytes4 interfaceId)
         public
         view
-        override(ERC721)
+        override(ERC721, AccessControl)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
     }
+
 }

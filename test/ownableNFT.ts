@@ -1,11 +1,9 @@
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import OwnableNFTArtifact from '../artifacts/contracts/OwnableNFT.sol/OwnableNFT.json';
-import { Counter } from '../src/types/'
 
 describe("OwnableNFT", () => {
-  let deployedContract: OwnableNFT;
+  let deployedContract: any;
   let owner: SignerWithAddress;
   let addr1: SignerWithAddress;
   let addr2: SignerWithAddress;
@@ -15,10 +13,10 @@ describe("OwnableNFT", () => {
 
   // SETUP
   beforeEach(async function () {
-    const OwnableNFT = await ethers.getContractFactory("OwnableNFT");
+    const Contract = await ethers.getContractFactory("OwnableNFT");
     [owner, addr1, addr2] = await ethers.getSigners();
 
-    deployedContract = await OwnableNFT.deploy();
+    deployedContract = await Contract.deploy();
     await deployedContract.deployed();
   });
 

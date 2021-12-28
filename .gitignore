@@ -13,3 +13,5 @@ log.txt
 #Hardhat files
 cache
 artifacts
+
+src/types
