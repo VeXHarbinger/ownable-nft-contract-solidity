@@ -13,6 +13,13 @@ contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
+    event NGTCreated(
+        address from,
+        address to,
+        uint256 tokenId,
+        string tokenURI
+    );
+
 
     // the name and symbol of the NFT respectively
     constructor() public ERC721("OwnableNFT", "NFT") {}
@@ -31,6 +38,8 @@ contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
         uint256 newItemId = _tokenIds.current();
         _mint(receiver, newItemId);
         _setTokenURI(newItemId, tokenURI);
+
+        emit NGTCreated(msg.sender, receiver, newItemId, tokenURI);
 
         // returns the id for the newly created token
         return newItemId;

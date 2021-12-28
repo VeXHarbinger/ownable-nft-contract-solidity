@@ -1,6 +1,11 @@
 # Ownable NFT contract Hardhat Project
 
 [![Merge CI](https://github.com/JoseRodrigues443/ownable-nft-contract-solidity/actions/workflows/merge.yaml/badge.svg)](https://github.com/JoseRodrigues443/ownable-nft-contract-solidity/actions/workflows/merge.yaml)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/JoseRodrigues443/ownable-nft-contract-solidity)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/JoseRodrigues443/ownable-nft-contract-solidity)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![node-current](https://img.shields.io/node/v/v)
+![GitHub issues](https://img.shields.io/github/issues-raw/JoseRodrigues443/ownable-nft-contract-solidity)
 
 This project demonstrates an `ERC721` contract usage alongside the `Ownable` access control tooling from openzeppelin.
 
@@ -10,6 +15,7 @@ This project demonstrates an `ERC721` contract usage alongside the `Ownable` acc
   - [Compile](#compile)
   - [Deploy contract](#deploy-contract)
     - [Output](#output)
+  - [Create valid accounts (metamask)](#create-valid-accounts-metamask)
   - [Mint With not owner (should fail)](#mint-with-not-owner-should-fail)
     - [Output](#output-1)
   - [Mint NFT](#mint-nft)
@@ -50,6 +56,21 @@ Account balance: 4238483431681902615
 Contract deployed to: 0x645f4bf85aEd84139FB7C1A51CE704E736b91aD4
 Account balance: 4233398429733402789
 
+
+```
+
+## Create valid accounts (metamask)
+
+And then create env variables to use the next commands.
+
+```bash
+
+  $ACCOUNT_1_PUBLIC=0x15d34....
+  $ACCOUNT_1_PRIVATE=0x15d34....
+  $ACCOUNT_2_PUBLIC=0x15d34....
+  $ACCOUNT_2_PRIVATE=0x15d34....
+  $ACCOUNT_3_PUBLIC=0x15d34....
+  $ACCOUNT_3_PRIVATE=0x15d34....
 
 ```
 
