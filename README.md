@@ -13,11 +13,13 @@ This project demonstrates an `ERC721` contract usage alongside the `Ownable` acc
 - [How use deploy and use](#how-use-deploy-and-use)
   - [Requirements](#requirements)
   - [Compile](#compile)
+    - [Ownable Contract](#ownable-contract)
+    - [Role Based System Contract](#role-based-system-contract)
 - [Other tooling in the project](#other-tooling-in-the-project)
 
 # How use deploy and use
 
-The following steps allow for the deploy and use of the `OwnableNFT.sol` contract on the specified network.
+The following steps allow for the deploy and use of the contracts in the contract directory using a specified network.
 
 ## Requirements
 
@@ -29,6 +31,14 @@ The following steps allow for the deploy and use of the `OwnableNFT.sol` contrac
 ## Compile
 
 `make compile`
+
+### Ownable Contract
+
+See more information in [Ownable NFT doc page](./docs/ownable-nft.md)
+
+### Role Based System Contract
+
+See more information in [Role Based NFT doc page](./docs/role-based-nft.md)
 
 # Other tooling in the project
 

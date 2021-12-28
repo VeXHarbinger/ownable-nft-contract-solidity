@@ -24,7 +24,7 @@ contract OwnableNFT is ERC721, ERC721URIStorage, Ownable {
 
     // the name and symbol of the NFT respectively
     constructor() ERC721("OwnableNFT", "NFT") {
-        console.log("RoleBasedNFT created");
+        console.log("Constructor: OwnableNFT created");
     }
 
     // Create a function to mint/create the NFT

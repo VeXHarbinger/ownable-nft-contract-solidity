@@ -109,7 +109,7 @@ contract RoleControl is AccessControl {
     function renounceAdmin()
         public virtual
     {
-        renounceRole(USER_ROLE, msg.sender);
+        renounceRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
 
 }

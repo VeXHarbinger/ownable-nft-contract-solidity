@@ -25,7 +25,7 @@ contract RoleBasedNFT is ERC721, ERC721URIStorage, RoleControl {
 
     // the name and symbol of the NFT respectively
     constructor() ERC721("RoleBasedNFT", "NFT") RoleControl(msg.sender) {
-        console.log("RoleBasedNFT created");
+        console.log("Constructor: RoleBasedNFT created");
     }
 
     function createNFT(address receiver, string memory uri)
