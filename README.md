@@ -10,14 +10,14 @@
 This project demonstrates an `ERC721` contract usage alongside the `Ownable` access control tooling from openzeppelin.
 
 - [Ownable NFT contract Hardhat Project](#ownable-nft-contract-hardhat-project)
-- [How use deploy and use](#how-use-deploy-and-use)
+- [How deploy and use](#how-deploy-and-use)
   - [Requirements](#requirements)
   - [Compile](#compile)
     - [Ownable Contract](#ownable-contract)
     - [Role Based System Contract](#role-based-system-contract)
 - [Other tooling in the project](#other-tooling-in-the-project)
 
-# How use deploy and use
+# How deploy and use
 
 The following steps allow for the deploy and use of the contracts in the contract directory using a specified network.
 
