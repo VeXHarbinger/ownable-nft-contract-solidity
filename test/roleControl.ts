@@ -27,6 +27,7 @@ describe("RoleControl", () => {
     expect(await deployedContract.isAdmin(owner.address)).to.be.equal(true);
     expect(await deployedContract.isUser(owner.address)).to.be.equal(false);
   });
+
   it("Other user should not be admin", async () => {
     expect(await deployedContract.isAdmin(addr1.address)).to.be.equal(false);
     expect(await deployedContract.isUser(addr1.address)).to.be.equal(false);

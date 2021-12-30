@@ -13,7 +13,7 @@
     "url": "git@gitlab.fftech.info:josemiguel.rodrigues/solidity-contracts-governance.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "JoseRodrigues443",
   "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

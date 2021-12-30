@@ -29,7 +29,7 @@ contract RoleControl is AccessControl {
 
     /// @dev Restricted to members of the user role.
     modifier onlyUser() {
-        require(isUser(msg.sender), "Restricted to admins.");
+        require(isUser(msg.sender), "Restricted to user.");
         _;
     }
     
